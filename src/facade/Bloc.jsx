@@ -115,12 +115,6 @@ export default class Bloc extends Component {
   }
 
   receive = (ref, data, extraParams) => {
-    // console.log("Bloc receive");
-
-    // console.log("ref: ", ref);
-    // console.log("data: ", data);
-    // console.log("extraParams: ", extraParams);
-
     this.executeFlow(ref, data, extraParams);
   };
 

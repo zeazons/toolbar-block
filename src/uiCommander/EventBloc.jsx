@@ -1,143 +1,99 @@
 import $ from "jquery";
 import EventBloc from "../bloc/EventBloc";
 
+import {
+  URL_LOAD_TOOLBAR,
+  METHOD_LOAD_TOOLBAR,
+} from "../constants/urlConstants";
+
 export default class UIEventBloc extends EventBloc {
   constructor(props) {
     super(props);
   }
 
-  init = (refs, extraParams) => {
+  load = (refs, extraParams) => {
+    this.loadToolbar(refs);
+  };
+
+  init = (refs, props) => {
     const el = refs.current;
     if (el) {
       const comp = $(el).attr("class");
 
-      // init emulator
-      if ("actionbar" === comp) {
-        // init keypad
-        if ("actionbar" === comp) {
-          const buttons = $(el).find("button");
-
-          for (const button of buttons) {
-            switch ($(button).find("i").attr("class")) {
-              case "fas fa-folder-open":
-                this.onOpenFlowClick(button, extraParams);
-                break;
-
-              case "fas fa-save":
-                this.onSaveFlowClick(button, extraParams);
-                break;
-
-              case "fas fa-undo-alt":
-                this.onUndoFlowClick(button, extraParams);
-                break;
-
-              case "fas fa-redo-alt":
-                this.onRedoFlowClick(button, extraParams);
-                break;
-
-              case "fas fa-border-none":
-                this.onOpenFlowGuidelineClick(button, extraParams);
-                break;
-
-              case "fas fa-search-minus":
-                this.onZoomOutFlowClick(button, extraParams);
-                break;
-
-              case "fas fa-search-plus":
-                this.onZoomInFlowClick(button, extraParams);
-                break;
-
-              case "fas fa-compress":
-                this.onZoomActualSizeFlowClick(button, extraParams);
-                break;
-
-              case "fas fa-expand":
-                this.onZoomFitSizeFlowClick(button, extraParams);
-                break;
-
-              default:
-                break;
-            }
-
-            // this.onKeypadClick(button);
-          }
-        }
-
-        // const textAreaList = $(el).find("textarea");
-        // const elScreen = $(el).find(`.${textAreaList[0].className}`);
-        // this.onKeyDown(elScreen);
-        // this.onMouseUp(elScreen);
-      }
-
-      // init keypad
-      if ("keypad" === comp) {
+      if ("toolbar-block" === comp) {
         const buttons = $(el).find("button");
+
         for (const button of buttons) {
-          this.onOpenFlowClick(button);
+          switch ($(button).find("i").attr("class")) {
+            case "fas fa-folder-open":
+              this.onToolButtonClick(button, "readFlow", props);
+              break;
+
+            case "fas fa-edit":
+              this.onToolButtonClick(button, "editFlow", props);
+              break;
+
+            case "fas fa-save":
+              this.onToolButtonClick(button, "saveFlow", props);
+              break;
+
+            case "fas fa-history":
+              this.onToolButtonClick(button, "discardFlow", props);
+              break;
+
+            case "fas fa-times-circle":
+              this.onToolButtonClick(button, "closeFlow", props);
+              break;
+
+            case "fas fa-undo-alt":
+              this.onToolButtonClick(button, "undoFlow", props);
+              break;
+
+            case "fas fa-redo-alt":
+              this.onToolButtonClick(button, "redoFlow", props);
+              break;
+
+            case "fas fa-border-none":
+              this.onToolButtonClick(button, "toggleFlowGuideline", props);
+              break;
+
+            case "fas fa-search-minus":
+              this.onToolButtonClick(button, "zoomOutFlow", props);
+              break;
+
+            case "fas fa-search-plus":
+              this.onToolButtonClick(button, "zoomInFlow", props);
+              break;
+
+            case "fas fa-compress":
+              this.onToolButtonClick(button, "zoomActualSize", props);
+              break;
+
+            case "fas fa-expand":
+              this.onToolButtonClick(button, "zoomFitSize", props);
+              break;
+
+            default:
+              break;
+          }
         }
       }
     }
   };
 
-  onOpenFlowClick = (button, extraParams) => {
-    $(button).click((event) => {
-      this.receiveEvent(`onOpenFlowClick`, event, extraParams);
-      event.preventDefault();
-    });
+  loadToolbar = (refs) => {
+    // const extraParams = {
+    //   refs: refs,
+    //   url: URL_LOAD_TOOLBAR,
+    //   method: METHOD_LOAD_TOOLBAR,
+    //   params: {},
+    // };
+    // this.receiveEvent(`onToolbarLoad`, {}, extraParams);
   };
 
-  onSaveFlowClick = (button, extraParams) => {
+  onToolButtonClick = (button, data, props) => {
     $(button).click((event) => {
-      this.receiveEvent(`onSaveFlowClick`, event, extraParams);
-      event.preventDefault();
-    });
-  };
-
-  onUndoFlowClick = (button, extraParams) => {
-    $(button).click((event) => {
-      this.receiveEvent(`onUndoFlowClick`, event, extraParams);
-      event.preventDefault();
-    });
-  };
-
-  onRedoFlowClick = (button, extraParams) => {
-    $(button).click((event) => {
-      this.receiveEvent(`onRedoFlowClick`, event, extraParams);
-      event.preventDefault();
-    });
-  };
-
-  onOpenFlowGuidelineClick = (button, extraParams) => {
-    $(button).click((event) => {
-      this.receiveEvent(`onOpenFlowGuidelineClick`, event, extraParams);
-      event.preventDefault();
-    });
-  };
-
-  onZoomOutFlowClick = (button, extraParams) => {
-    $(button).click((event) => {
-      this.receiveEvent(`onZoomOutFlowClick`, event, extraParams);
-      event.preventDefault();
-    });
-  };
-
-  onZoomInFlowClick = (button, extraParams) => {
-    $(button).click((event) => {
-      this.receiveEvent(`onZoomInFlowClick`, event, extraParams);
-      event.preventDefault();
-    });
-  };
-
-  onZoomActualSizeFlowClick = (button, extraParams) => {
-    $(button).click((event) => {
-      this.receiveEvent(`onZoomActualSizeFlowClick`, event, extraParams);
-      event.preventDefault();
-    });
-  };
-
-  onZoomFitSizeFlowClick = (button, extraParams) => {
-    $(button).click((event) => {
-      this.receiveEvent(`onZoomFitSizeFlowClick`, event, extraParams);
+      props.onToolButtonClick(event, data);
       event.preventDefault();
     });
   };

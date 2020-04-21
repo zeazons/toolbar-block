@@ -14,9 +14,11 @@ export const URL_UNDO_FLOW = `${URI_BASE}UndoFlow`;
 export const URL_REDO_FLOW = `${URI_BASE}RedoFlow`;
 export const URL_GET_NODE_PROPERTY = `${URI}getWidgetProperties`;
 export const URL_SAVE_NODE_PROPERTY = `${URI_BASE}SaveNodeProperty`;
+export const URL_LOAD_TOOLBAR = `${URI_BASE}LoadToolbar`;
 
 export const METHOD_OPEN_FLOW = `<method_openflow>`;
 export const METHOD_SAVE_FLOW = `<method_saveFlow>`;
 export const METHOD_UNDO_FLOW = `<method_undo>`;
 export const METHOD_REDO_FLOW = `<method_redo>`;
 export const METHOD_LIST_WIDGETS = `<method_list_widgets>`;
+export const METHOD_LOAD_TOOLBAR = `<method_load_toolbar>`;

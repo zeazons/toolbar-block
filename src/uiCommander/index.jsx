@@ -12,6 +12,7 @@ class Toolbar extends Component {
   constructor(props) {
     super(props);
 
+    this.ref = React.createRef();
     this.toolbarLeftRef = React.createRef();
     this.toolbarRigthRef = React.createRef();
 
@@ -21,31 +22,39 @@ class Toolbar extends Component {
     this.eventBloc = new UIEventBloc();
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    this.eventBloc.init(this.toolbarLeftRef, nextProps.editor);
-    this.eventBloc.init(this.toolbarRigthRef, nextProps.editor);
+  onToolButtonClick = (event, data) => {
+    const { props } = this.props;
 
-    return true;
+    if (props) {
+      props.onToolButtonClick((event, data));
+    }
+  };
+
+  componentDidMount() {
+    this.eventBloc.load(this.ref);
+    this.eventBloc.init(this.ref, this.props);
+    // this.eventBloc.init(this.toolbarRigthRef);
   }
 
   render() {
     const props = this.props;
 
+    const ref = this.ref;
     const toolbarLeftRef = this.toolbarLeftRef;
     const toolbarRigthRef = this.toolbarRigthRef;
 
     return (
-      <div className="toolbar-component">
+      <div className="toolbar-block" ref={ref}>
         {/* <div className="row align-items-center">
           <div className="col">Toolbar</div>
         </div> */}
 
         <div className="row align-items-center">
           <div className="col">
-            <ToolbarLeftView ref={toolbarLeftRef} {...props} />
+            <ToolbarLeftView {...props} ref={toolbarLeftRef} />
           </div>
           <div className="col d-flex justify-content-end">
-            <ToolbarRightView ref={toolbarRigthRef} {...props} />
+            <ToolbarRightView {...props} ref={toolbarRigthRef} />
           </div>
         </div>
       </div>

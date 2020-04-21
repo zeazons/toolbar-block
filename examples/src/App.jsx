@@ -20,7 +20,13 @@ export default class CanvasDemo extends Component {
 
     return (
       <div>
-        <Canvas ref={ref} id={id} />
+        <Canvas
+          ref={ref}
+          id={id}
+          onToolButtonClick={(event, topic) => {
+            console.log("topic: ", topic);
+          }}
+        />
       </div>
     );
   }
