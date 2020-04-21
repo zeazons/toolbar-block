@@ -1,0 +1,32 @@
+ .spacer {
+     display: inline;
+     border-left: 1px solid rgba(1, 1, 1, 0.1);
+ }
+
+ .fas.fa-folder-open {
+     color: rgb(0, 0, 0);
+ }
+
+ .fas.fa-edit {
+     color: rgb(0, 0, 0);
+ }
+
+ .fas.fa-save {
+     color: rgb(0, 0, 0);
+ }
+
+ .fas.fa-history {
+     color: rgb(0, 0, 0);
+ }
+
+ .fas.fa-history:hover {
+     color: rgb(247, 181, 0)
+ }
+
+ .fas.fa-times-circle {
+     color: rgb(0, 0, 0);
+ }
+
+ .fas.fa-times-circle:hover {
+     color: rgb(255, 1, 0)
+ }
