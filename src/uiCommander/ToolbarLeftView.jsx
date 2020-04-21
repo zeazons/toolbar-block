@@ -28,7 +28,7 @@ const ToolbarLeftView = React.forwardRef(({ id, height } = props, ref) => (
         </Tooltip>
       </ToolbarCircleButton>
     </div>
-    <div className="spacer"> </div>
+    {/* <div className="spacer"> </div> */}
     <div className="btn btn-group">
       <ToolbarButton>
         <Tooltip title="Discard Flow">
@@ -42,7 +42,7 @@ const ToolbarLeftView = React.forwardRef(({ id, height } = props, ref) => (
       </ToolbarButton>
     </div>
 
-    <div className="spacer"> </div>
+    {/* <div className="spacer"> </div> */}
 
     <div className="btn btn-group">
       <ToolbarButton>

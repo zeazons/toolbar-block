@@ -33,7 +33,7 @@ const ToolbarRightView = React.forwardRef(({ id, height } = props, ref) => (
         </ActionBarButton> */}
     </div>
 
-    <div className="spacer"> </div>
+    {/* <div className="spacer"> </div> */}
 
     <div className="btn btn-group">
       <ToolbarButton>

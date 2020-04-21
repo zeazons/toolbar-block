@@ -31,9 +31,9 @@ class Toolbar extends Component {
   };
 
   componentDidMount() {
+    this.managerBloc.refs["toolbar"] = this.ref;
     this.eventBloc.load(this.ref);
     this.eventBloc.init(this.ref, this.props);
-    // this.eventBloc.init(this.toolbarRigthRef);
   }
 
   render() {

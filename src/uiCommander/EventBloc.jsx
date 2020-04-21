@@ -6,6 +6,11 @@ import {
   METHOD_LOAD_TOOLBAR,
 } from "../constants/urlConstants";
 
+import {
+  getParentByClassName,
+  generateReferenceView,
+} from "../utils/viewUtils";
+
 export default class UIEventBloc extends EventBloc {
   constructor(props) {
     super(props);
@@ -81,14 +86,8 @@ export default class UIEventBloc extends EventBloc {
     }
   };
 
-  loadToolbar = (refs) => {
-    // const extraParams = {
-    //   refs: refs,
-    //   url: URL_LOAD_TOOLBAR,
-    //   method: METHOD_LOAD_TOOLBAR,
-    //   params: {},
-    // };
-    // this.receiveEvent(`onToolbarLoad`, {}, extraParams);
+  loadToolbar = (data) => {
+    this.receiveEvent(`onToolbarLoader`, data);
   };
 
   onToolButtonClick = (button, data, props) => {
