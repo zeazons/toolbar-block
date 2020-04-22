@@ -7,13 +7,13 @@ export default class PageBloc extends Component {
     super(props);
   }
 
-  readFlowHandler = () => {
+  loadFlowHandler = () => {
     const data = {
       url: URL_OPEN_FLOW,
       method: "readFlow",
       params: {},
     };
 
-    this.props.current.readFlow(data);
+    this.props.current.loadFlow(data);
   };
 }

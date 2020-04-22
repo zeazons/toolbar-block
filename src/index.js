@@ -1,2 +1,2 @@
-import Flow from "./uiCommander";
-export default Flow;
+import Toolbar from "./uiCommander";
+export default Toolbar;

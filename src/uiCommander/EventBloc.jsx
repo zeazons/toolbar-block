@@ -31,7 +31,7 @@ export default class UIEventBloc extends EventBloc {
         for (const button of buttons) {
           switch ($(button).find("i").attr("class")) {
             case "fas fa-folder-open":
-              this.onToolButtonClick(button, "readFlow", props);
+              this.onToolButtonClick(button, "loadFlow", props);
               break;
 
             case "fas fa-edit":
