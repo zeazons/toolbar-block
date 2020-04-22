@@ -17,11 +17,13 @@ export default class UIEventBloc extends EventBloc {
   }
 
   load = (refs) => {
-    this.loadToolbar(refs);
+    this.onLoadToolbar(refs);
   };
 
-  init = (refs, props) => {
-    const el = refs.current;
+  init = (ref, props) => {
+    const editor = props.editor;
+
+    const el = ref.current;
     if (el) {
       const comp = $(el).attr("class");
 
@@ -31,51 +33,51 @@ export default class UIEventBloc extends EventBloc {
         for (const button of buttons) {
           switch ($(button).find("i").attr("class")) {
             case "fas fa-folder-open":
-              this.onToolButtonClick(button, "loadFlow", props);
+              this.onLoadFlowClick(button, editor);
               break;
 
             case "fas fa-edit":
-              this.onToolButtonClick(button, "editFlow", props);
+              this.onEditFlowClick(button, editor);
               break;
 
             case "fas fa-save":
-              this.onToolButtonClick(button, "saveFlow", props);
+              this.onSaveFlowClick(button, editor);
               break;
 
             case "fas fa-history":
-              this.onToolButtonClick(button, "discardFlow", props);
+              this.onDiscardFlowClick(button, editor);
               break;
 
             case "fas fa-times-circle":
-              this.onToolButtonClick(button, "closeFlow", props);
+              this.onCloseFlowClick(button, editor);
               break;
 
             case "fas fa-undo-alt":
-              this.onToolButtonClick(button, "undoFlow", props);
+              this.onUndoFlowClick(button, editor);
               break;
 
             case "fas fa-redo-alt":
-              this.onToolButtonClick(button, "redoFlow", props);
+              this.onRedoFlowClick(button, editor);
               break;
 
             case "fas fa-border-none":
-              this.onToolButtonClick(button, "toggleFlowGuideline", props);
+              this.onToggleFlowGuidelineClick(button, editor);
               break;
 
             case "fas fa-search-minus":
-              this.onToolButtonClick(button, "zoomOutFlow", props);
+              this.onZoomOutFlowClick(button, editor);
               break;
 
             case "fas fa-search-plus":
-              this.onToolButtonClick(button, "zoomInFlow", props);
+              this.onZoomInFlowClick(button, editor);
               break;
 
             case "fas fa-compress":
-              this.onToolButtonClick(button, "zoomActualSize", props);
+              this.onZoomActualSizeClick(button, editor);
               break;
 
             case "fas fa-expand":
-              this.onToolButtonClick(button, "zoomFitSize", props);
+              this.onZoomFitSizeClick(button, editor);
               break;
 
             default:
@@ -86,13 +88,90 @@ export default class UIEventBloc extends EventBloc {
     }
   };
 
-  loadToolbar = (ref) => {
+  onLoadToolbar = (ref) => {
     this.receiveEvent(`onToolbarLoader`, ref);
   };
 
-  onToolButtonClick = (button, data, props) => {
+  onLoadFlowClick = (button, editor) => {
     $(button).click((event) => {
-      props.onToolButtonClick(event, data);
+      this.receiveEvent(`onLoadFlow`, event, editor);
+      event.preventDefault();
+    });
+  };
+
+  onEditFlowClick = (button, editor) => {
+    $(button).click((event) => {
+      this.receiveEvent(`onEditFlow`, event, editor);
+      event.preventDefault();
+    });
+  };
+
+  onSaveFlowClick = (button, editor) => {
+    $(button).click((event) => {
+      this.receiveEvent(`onSaveFlow`, event, editor);
+      event.preventDefault();
+    });
+  };
+
+  onDiscardFlowClick = (button, editor) => {
+    $(button).click((event) => {
+      this.receiveEvent(`onDiscardFlow`, event, editor);
+      event.preventDefault();
+    });
+  };
+
+  onCloseFlowClick = (button, editor) => {
+    $(button).click((event) => {
+      this.receiveEvent(`onCloseFlow`, event, editor);
+      event.preventDefault();
+    });
+  };
+
+  onUndoFlowClick = (button, editor) => {
+    $(button).click((event) => {
+      this.receiveEvent(`onUndoFlow`, event, editor);
+      event.preventDefault();
+    });
+  };
+
+  onRedoFlowClick = (button, editor) => {
+    $(button).click((event) => {
+      this.receiveEvent(`onRedoFlow`, event, editor);
+      event.preventDefault();
+    });
+  };
+
+  onToggleFlowGuidelineClick = (button, editor) => {
+    $(button).click((event) => {
+      this.receiveEvent(`onToggleFlowGuideline`, event, editor);
+      event.preventDefault();
+    });
+  };
+
+  onZoomOutFlowClick = (button, editor) => {
+    $(button).click((event) => {
+      this.receiveEvent(`onZoomOutFlow`, event, editor);
+      event.preventDefault();
+    });
+  };
+
+  onZoomInFlowClick = (button, editor) => {
+    $(button).click((event) => {
+      this.receiveEvent(`onZoomInFlow`, event, editor);
+      event.preventDefault();
+    });
+  };
+
+  onZoomActualSizeClick = (button, editor) => {
+    $(button).click((event) => {
+      this.receiveEvent(`onZoomActualSizeFlow`, event, editor);
+      event.preventDefault();
+    });
+  };
+
+  onZoomFitSizeClick = (button, editor) => {
+    $(button).click((event) => {
+      this.receiveEvent(`onZoomFitSizeFlow`, event, editor);
       event.preventDefault();
     });
   };

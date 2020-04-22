@@ -14,19 +14,14 @@ export default class CanvasDemo extends Component {
 
   render() {
     const id = "flow";
+    const editor = { graph: {} };
 
     const ref = this.ref;
     const bloc = this.bloc;
 
     return (
       <div>
-        <Canvas
-          ref={ref}
-          id={id}
-          onToolButtonClick={(event, topic) => {
-            console.log("topic: ", topic);
-          }}
-        />
+        <Canvas ref={ref} id={id} editor={editor} />
       </div>
     );
   }
