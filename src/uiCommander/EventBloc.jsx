@@ -86,8 +86,8 @@ export default class UIEventBloc extends EventBloc {
     }
   };
 
-  loadToolbar = (data) => {
-    this.receiveEvent(`onToolbarLoader`, data);
+  loadToolbar = (ref) => {
+    this.receiveEvent(`onToolbarLoader`, ref);
   };
 
   onToolButtonClick = (button, data, props) => {
