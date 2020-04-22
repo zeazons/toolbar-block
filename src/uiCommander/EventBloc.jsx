@@ -16,7 +16,7 @@ export default class UIEventBloc extends EventBloc {
     super(props);
   }
 
-  load = (refs, extraParams) => {
+  load = (refs) => {
     this.loadToolbar(refs);
   };
 

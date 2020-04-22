@@ -22,6 +22,12 @@ class Toolbar extends Component {
     this.eventBloc = new UIEventBloc();
   }
 
+  loadToolbar = () => {
+    const ref = this.refs;
+
+    this.eventBloc.loadToolbar(ref);
+  };
+
   onToolButtonClick = (event, data) => {
     const { props } = this.props;
 
