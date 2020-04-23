@@ -45,7 +45,7 @@ const post = (data) => {
         errorObj["data"] = e.response.data;
       } else {
         errorObj["statusCode"] = ExceptionConstants.STATUS_CODE_408;
-        errorObj["message"] = "Request Timeout";
+        errorObj["message"] = ExceptionConstants.MSG_NOT_RESPONSE_DATA;
       }
 
       return errorObj;

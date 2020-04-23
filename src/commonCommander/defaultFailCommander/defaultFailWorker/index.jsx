@@ -3,13 +3,14 @@ import _ from "lodash";
 import Worker from "../../../facade/Worker";
 
 import * as ExceptionConstants from "../../../constants/exceptionConstants";
-import * as ActionConstants from "../../../constants/actionConstants";
+
+import * as ActionConstants from "../../constants/actionConstants";
 
 // Utils
 import { isEmpty } from "../../../utils/validationUtils";
 import { generateAction } from "../../../utils/actionUtils";
 
-const extractStatusCode = data => {
+const extractStatusCode = (data) => {
   let statusCode;
   if (isEmpty(data)) {
     statusCode = ExceptionConstants.STATUS_CODE_DEFAULT;
@@ -25,28 +26,28 @@ const getActionWithStatusCode = (statusCode, data) => {
       return generateAction({
         name: ActionConstants.ACTION_SHOW_ERROR,
         force: true,
-        params: data
+        params: data,
       });
 
     case ExceptionConstants.STATUS_CODE_404:
       return generateAction({
         name: ActionConstants.ACTION_SHOW_ERROR,
         force: true,
-        params: data
+        params: data,
       });
 
     case ExceptionConstants.STATUS_CODE_408:
       return generateAction({
         name: ActionConstants.ACTION_SHOW_ERROR,
         force: true,
-        params: data
+        params: data,
       });
 
     case ExceptionConstants.STATUS_CODE_500:
       return generateAction({
         name: ActionConstants.ACTION_SHOW_ERROR,
         force: true,
-        params: data
+        params: data,
       });
 
     default:
@@ -54,21 +55,21 @@ const getActionWithStatusCode = (statusCode, data) => {
         return generateAction({
           name: ActionConstants.ACTION_SHOW_ERROR,
           force: true,
-          params: data
+          params: data,
         });
       } else {
         return generateAction({
           name: ActionConstants.ACTION_SHOW_ERROR,
           force: true,
           params: {
-            message: ExceptionConstants.MSG_ERROR
-          }
+            message: ExceptionConstants.MSG_ERROR,
+          },
         });
       }
   }
 };
 
-const getDefaultAction = data => {
+const getDefaultAction = (data) => {
   const statusCode = extractStatusCode(data);
 
   if (!isEmpty(statusCode)) {
@@ -81,7 +82,7 @@ export default class DefaultFailWorker extends Worker {
     super(props);
   }
 
-  execute = data => {
+  execute = (data) => {
     return getDefaultAction(data);
   };
 }

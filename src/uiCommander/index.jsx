@@ -17,7 +17,7 @@ class Toolbar extends Component {
     this.toolbarRigthRef = React.createRef();
 
     this.managerBloc = new ManagerBloc();
-    this.managerBloc.refs = [];
+    // this.managerBloc.refs = [];
 
     this.eventBloc = new UIEventBloc();
   }
@@ -25,7 +25,7 @@ class Toolbar extends Component {
   loadToolbar = () => {
     const ref = this.refs;
 
-    this.eventBloc.loadToolbar(ref);
+    this.eventBloc.load(ref);
   };
 
   loadFlow = () => {
@@ -113,7 +113,7 @@ class Toolbar extends Component {
   };
 
   componentDidMount() {
-    this.managerBloc.refs["toolbar"] = this.ref;
+    // this.managerBloc.refs["toolbar"] = this.ref;
     this.eventBloc.load(this.ref);
     this.eventBloc.init(this.ref, this.props);
   }

@@ -3,7 +3,8 @@ import { Component } from "react";
 import PrivateTerminal from "../../../facade/PrivateTerminal";
 import UIListener from "../../../uiCommander/UIListener";
 
-import * as ActionConstants from "../../../constants/actionConstants";
+// import * as ActionConstants from "../../../constants/actionConstants";
+import * as ActionConstants from "../../constants/actionConstants";
 import { generateAction } from "../../../utils/actionUtils";
 
 class EventWorker extends Component {

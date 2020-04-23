@@ -1,6 +1,6 @@
 import Listener from "../../../facade/Listener";
 
-import * as ActionConstants from "../../../constants/actionConstants";
+import * as ActionConstants from "../../constants/actionConstants";
 import { generateAction } from "../../../utils/actionUtils";
 
 export default class CommandValidatorListener extends Listener {
