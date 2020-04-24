@@ -17,7 +17,13 @@ export default class AppDemo extends Component {
 
     return (
       <div>
-        <App ref={ref} id={id} />
+        <App
+          ref={ref}
+          id={id}
+          onToolButtonClick={(event, topic) => {
+            console.log("topic: ", topic);
+          }}
+        />
       </div>
     );
   }

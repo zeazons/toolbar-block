@@ -28,88 +28,12 @@ class Toolbar extends Component {
     this.eventBloc.load(ref);
   };
 
-  loadFlow = () => {
-    const ref = this.refs;
-    const editor = this.props.editor;
+  onToolButtonClick = (event, data) => {
+    const { props } = this.props;
 
-    this.eventBloc.loadFlow(ref, editor);
-  };
-
-  editFlow = () => {
-    const ref = this.refs;
-    const editor = this.props.editor;
-
-    this.eventBloc.editFlow(ref, editor);
-  };
-
-  saveFlow = () => {
-    const ref = this.refs;
-    const editor = this.props.editor;
-
-    this.eventBloc.saveFlow(ref, editor);
-  };
-
-  discardFlow = () => {
-    const ref = this.refs;
-    const editor = this.props.editor;
-
-    this.eventBloc.discardFlow(ref, editor);
-  };
-
-  closeFlow = () => {
-    const ref = this.refs;
-    const editor = this.props.editor;
-
-    this.eventBloc.closeFlow(ref, editor);
-  };
-
-  undoFlow = () => {
-    const ref = this.refs;
-    const editor = this.props.editor;
-
-    this.eventBloc.undoFlow(ref, editor);
-  };
-
-  redoFlow = () => {
-    const ref = this.refs;
-    const editor = this.props.editor;
-
-    this.eventBloc.redoFlow(ref, editor);
-  };
-
-  toggleFlowGuideline = () => {
-    const ref = this.refs;
-    const editor = this.props.editor;
-
-    this.eventBloc.toggleFlowGuideline(ref, editor);
-  };
-
-  zoomOutFlow = () => {
-    const ref = this.refs;
-    const editor = this.props.editor;
-
-    this.eventBloc.zoomOutFlow(ref, editor);
-  };
-
-  zoomInFlow = () => {
-    const ref = this.refs;
-    const editor = this.props.editor;
-
-    this.eventBloc.zoomInFlow(ref, editor);
-  };
-
-  zoomActualSize = () => {
-    const ref = this.refs;
-    const editor = this.props.editor;
-
-    this.eventBloc.zoomActualSize(ref, editor);
-  };
-
-  zoomFitSize = () => {
-    const ref = this.refs;
-    const editor = this.props.editor;
-
-    this.eventBloc.zoomFitSize(ref, editor);
+    if (props) {
+      props.onToolButtonClick((event, data));
+    }
   };
 
   componentDidMount() {
