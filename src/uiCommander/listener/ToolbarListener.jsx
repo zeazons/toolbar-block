@@ -3,7 +3,7 @@ import Listener from "../../facade/Listener";
 import { generateAction } from "../../utils/actionUtils";
 import * as ActionConstants from "../../constants/actionConstants";
 
-export default class SetToolbarListener extends Listener {
+export default class ToolbarListener extends Listener {
   listen = (event, extraParams) => {
     this.execute(event, extraParams);
   };

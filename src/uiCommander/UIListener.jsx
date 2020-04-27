@@ -1,14 +1,14 @@
 import Listener from "../facade/Listener";
 
 import ToolbarLoadListener from "./listener/ToolbarLoadListener";
-import SetToolbarListener from "./listener/SetToolbarListener";
+import ToolbarListener from "./listener/ToolbarListener";
 
 export default class UIListener extends Listener {
   constructor(props) {
     super(props);
 
     this.toolbarLoadListener = new ToolbarLoadListener();
-    this.setToolbarListener = new SetToolbarListener();
+    this.toolbarListener = new ToolbarListener();
   }
 
   receive = (topic, data, extraParams) => {
@@ -20,6 +20,6 @@ export default class UIListener extends Listener {
   };
 
   onSetToolbar = (data, extraParams) => {
-    this.setToolbarListener.listen(data, extraParams);
+    this.toolbarListener.listen(data, extraParams);
   };
 }
