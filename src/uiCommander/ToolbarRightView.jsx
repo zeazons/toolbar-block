@@ -1,4 +1,13 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faBorderNone,
+  faSearchMinus,
+  faSearchPlus,
+  faCompress,
+  faExpand,
+} from "@fortawesome/free-solid-svg-icons";
+
 import Tooltip from "./tooltip";
 
 import ToolbarButton from "./toolbarButton";
@@ -21,7 +30,7 @@ const ToolbarRightView = React.forwardRef(({ id, height } = props, ref) => (
 
       <ToolbarButton>
         <Tooltip title="Open Guideline">
-          <i className="fas fa-border-none" />
+          <FontAwesomeIcon icon={faBorderNone} />
         </Tooltip>
       </ToolbarButton>
       {/* <ActionBarButton
@@ -38,22 +47,22 @@ const ToolbarRightView = React.forwardRef(({ id, height } = props, ref) => (
     <div className="btn btn-group">
       <ToolbarButton>
         <Tooltip title="Zoom Out">
-          <i className="fas fa-search-minus" />
+          <FontAwesomeIcon icon={faSearchMinus} />
         </Tooltip>
       </ToolbarButton>
       <ToolbarButton>
         <Tooltip title="Zoom In">
-          <i className="fas fa-search-plus" />
+          <FontAwesomeIcon icon={faSearchPlus} />
         </Tooltip>
       </ToolbarButton>
       <ToolbarButton>
         <Tooltip title="Zoom Actual Size">
-          <i className="fas fa-compress" />
+          <FontAwesomeIcon icon={faCompress} />
         </Tooltip>
       </ToolbarButton>
       <ToolbarButton>
         <Tooltip title="Zoom Fit Size">
-          <i className="fas fa-expand" />
+          <FontAwesomeIcon icon={faExpand} />
         </Tooltip>
       </ToolbarButton>
     </div>

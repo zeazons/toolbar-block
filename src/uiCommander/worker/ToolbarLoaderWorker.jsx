@@ -15,13 +15,15 @@ export default class ToolbarLoaderWorker extends Worker {
     super(props);
   }
 
-  loadToolbarButton = (ref, data, editor) => {
+  loadToolbarButton = (ref, data) => {
     const { tools } = data;
+
     for (let i = 0; i < tools.length; i++) {
       let btn;
+
       switch (tools[i].button) {
         case "OpenFlow":
-          btn = $(ref.current).find(".fas.fa-folder-open").parent();
+          btn = $(ref.current).find('*[data-icon="folder-open"]').parent();
           $(btn).prop("disabled", tools[i].disabled);
           if (tools[i].hidden) {
             $(btn).hide();
@@ -31,7 +33,7 @@ export default class ToolbarLoaderWorker extends Worker {
           break;
 
         case "EditFlow":
-          btn = $(ref.current).find(".fas.fa-edit").parent();
+          btn = $(ref.current).find('*[data-icon="edit"]').parent();
           $(btn).prop("disabled", tools[i].disabled);
           if (tools[i].hidden) {
             $(btn).hide();
@@ -41,7 +43,7 @@ export default class ToolbarLoaderWorker extends Worker {
           break;
 
         case "SaveFlow":
-          btn = $(ref.current).find(".fas.fa-save").parent();
+          btn = $(ref.current).find('*[data-icon="save"]').parent();
           $(btn).prop("disabled", tools[i].disabled);
           if (tools[i].hidden) {
             $(btn).hide();
@@ -51,7 +53,7 @@ export default class ToolbarLoaderWorker extends Worker {
           break;
 
         case "DiscardFlow":
-          btn = $(ref.current).find(".fas.fa-history").parent();
+          btn = $(ref.current).find('*[data-icon="history"]').parent();
           $(btn).prop("disabled", tools[i].disabled);
           if (tools[i].hidden) {
             $(btn).hide();
@@ -61,7 +63,7 @@ export default class ToolbarLoaderWorker extends Worker {
           break;
 
         case "CloseFlow":
-          btn = $(ref.current).find(".fas.fa-times-circle").parent();
+          btn = $(ref.current).find('*[data-icon="times-circle"]').parent();
           $(btn).prop("disabled", tools[i].disabled);
           if (tools[i].hidden) {
             $(btn).hide();
@@ -71,7 +73,7 @@ export default class ToolbarLoaderWorker extends Worker {
           break;
 
         case "UndoFlow":
-          btn = $(ref.current).find(".fas.fa-undo-alt").parent();
+          btn = $(ref.current).find('*[data-icon="undo-alt"]').parent();
           $(btn).prop("disabled", tools[i].disabled);
           if (tools[i].hidden) {
             $(btn).hide();
@@ -81,7 +83,7 @@ export default class ToolbarLoaderWorker extends Worker {
           break;
 
         case "RedoFlow":
-          btn = $(ref.current).find(".fas.fa-redo-alt").parent();
+          btn = $(ref.current).find('*[data-icon="redo-alt"]').parent();
           $(btn).prop("disabled", tools[i].disabled);
           if (tools[i].hidden) {
             $(btn).hide();
@@ -91,7 +93,7 @@ export default class ToolbarLoaderWorker extends Worker {
           break;
 
         case "ToggleGuideline":
-          btn = $(ref.current).find(".fas.fa-border-none").parent();
+          btn = $(ref.current).find('*[data-icon="border-none"]').parent();
           $(btn).prop("disabled", tools[i].disabled);
           if (tools[i].hidden) {
             $(btn).hide();
@@ -101,7 +103,7 @@ export default class ToolbarLoaderWorker extends Worker {
           break;
 
         case "ZoomOut":
-          btn = $(ref.current).find(".fas.fa-search-minus").parent();
+          btn = $(ref.current).find('*[data-icon="search-minus"]').parent();
           $(btn).prop("disabled", tools[i].disabled);
           if (tools[i].hidden) {
             $(btn).hide();
@@ -111,7 +113,7 @@ export default class ToolbarLoaderWorker extends Worker {
           break;
 
         case "ZoomIn":
-          btn = $(ref.current).find(".fas.fa-search-plus").parent();
+          btn = $(ref.current).find('*[data-icon="search-plus"]').parent();
           $(btn).prop("disabled", tools[i].disabled);
           if (tools[i].hidden) {
             $(btn).hide();
@@ -121,7 +123,7 @@ export default class ToolbarLoaderWorker extends Worker {
           break;
 
         case "ZoomActualSize":
-          btn = $(ref.current).find(".fas.fa-compress").parent();
+          btn = $(ref.current).find('*[data-icon="compress"]').parent();
           $(btn).prop("disabled", tools[i].disabled);
           if (tools[i].hidden) {
             $(btn).hide();
@@ -131,7 +133,7 @@ export default class ToolbarLoaderWorker extends Worker {
           break;
 
         case "ZoomFitSize":
-          btn = $(ref.current).find(".fas.fa-expand").parent();
+          btn = $(ref.current).find('*[data-icon="expand"]').parent();
           $(btn).prop("disabled", tools[i].disabled);
           if (tools[i].hidden) {
             $(btn).hide();

@@ -1,8 +1,19 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faFolderOpen,
+  faEdit,
+  faSave,
+  faTimesCircle,
+  faHistory,
+  faUndoAlt,
+  faRedoAlt,
+} from "@fortawesome/free-solid-svg-icons";
+
 import Tooltip from "./tooltip";
 
 import ToolbarButton from "./toolbarButton";
-import ToolbarCircleButton from "./ToolbarCircleButton";
+import ToolbarCircleButton from "./toolbarCircleButton";
 
 const ToolbarLeftView = React.forwardRef(({ id, height } = props, ref) => (
   <div
@@ -14,17 +25,17 @@ const ToolbarLeftView = React.forwardRef(({ id, height } = props, ref) => (
     <div className="btn">
       <ToolbarCircleButton size="small">
         <Tooltip title="Read Flow" placement="bottom">
-          <i className="fas fa-folder-open" />
+          <FontAwesomeIcon icon={faFolderOpen} />
         </Tooltip>
       </ToolbarCircleButton>
       <ToolbarCircleButton size="medium">
         <Tooltip title="Edit Flow">
-          <i className="fas fa-edit" />
+          <FontAwesomeIcon icon={faEdit} />
         </Tooltip>
       </ToolbarCircleButton>
       <ToolbarCircleButton size="medium">
         <Tooltip title="Save Flow">
-          <i className="fas fa-save" />
+          <FontAwesomeIcon icon={faSave} />
         </Tooltip>
       </ToolbarCircleButton>
     </div>
@@ -32,12 +43,12 @@ const ToolbarLeftView = React.forwardRef(({ id, height } = props, ref) => (
     <div className="btn btn-group">
       <ToolbarButton>
         <Tooltip title="Discard Flow">
-          <i className="fas fa-history" />
+          <FontAwesomeIcon icon={faHistory} />
         </Tooltip>
       </ToolbarButton>
       <ToolbarButton>
         <Tooltip title="Close Flow">
-          <i className="fas fa-times-circle" />
+          <FontAwesomeIcon icon={faTimesCircle} />
         </Tooltip>
       </ToolbarButton>
     </div>
@@ -47,12 +58,12 @@ const ToolbarLeftView = React.forwardRef(({ id, height } = props, ref) => (
     <div className="btn btn-group">
       <ToolbarButton>
         <Tooltip title="Undo Flow">
-          <i className="fas fa-undo-alt" />
+          <FontAwesomeIcon icon={faUndoAlt} />
         </Tooltip>
       </ToolbarButton>
       <ToolbarButton>
         <Tooltip title="Redo Flow">
-          <i className="fas fa-redo-alt" />
+          <FontAwesomeIcon icon={faRedoAlt} />
         </Tooltip>
       </ToolbarButton>
     </div>

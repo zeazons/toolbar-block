@@ -14,14 +14,12 @@ class TooltipComponent extends Component {
   }
   // Set default props
   static defaultProps = {
-    children: null,
     title: "",
     placement: "top",
   };
 }
 
 TooltipComponent.propTypes = {
-  children: PropTypes.object,
   title: PropTypes.string,
   placement: PropTypes.string,
 };

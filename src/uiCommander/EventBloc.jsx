@@ -20,6 +20,10 @@ export default class UIEventBloc extends EventBloc {
     this.onLoadToolbar(refs);
   };
 
+  setToolbar = (ref, tools) => {
+    this.receiveEvent(`onSetToolbar`, ref, tools);
+  };
+
   init = (ref, props) => {
     const el = ref.current;
     if (el) {
@@ -29,52 +33,52 @@ export default class UIEventBloc extends EventBloc {
         const buttons = $(el).find("button");
 
         for (const button of buttons) {
-          switch ($(button).find("i").attr("class")) {
-            case "fas fa-folder-open":
+          switch ($(button).find("svg").attr("data-icon")) {
+            case "folder-open":
               this.onToolButtonClick(button, "loadFlow", props);
               break;
 
-            case "fas fa-edit":
+            case "edit":
               this.onToolButtonClick(button, "editFlow", props);
               break;
 
-            case "fas fa-save":
+            case "save":
               this.onToolButtonClick(button, "saveFlow", props);
               break;
 
-            case "fas fa-history":
+            case "history":
               this.onToolButtonClick(button, "discardFlow", props);
               break;
 
-            case "fas fa-times-circle":
+            case "times-circle":
               this.onToolButtonClick(button, "closeFlow", props);
               break;
 
-            case "fas fa-undo-alt":
+            case "undo-alt":
               this.onToolButtonClick(button, "undoFlow", props);
               break;
 
-            case "fas fa-redo-alt":
+            case "redo-alt":
               this.onToolButtonClick(button, "redoFlow", props);
               break;
 
-            case "fas fa-border-none":
+            case "border-none":
               this.onToolButtonClick(button, "toggleFlowGuideline", props);
               break;
 
-            case "fas fa-search-minus":
+            case "search-minus":
               this.onToolButtonClick(button, "zoomOutFlow", props);
               break;
 
-            case "fas fa-search-plus":
+            case "search-plus":
               this.onToolButtonClick(button, "zoomInFlow", props);
               break;
 
-            case "fas fa-compress":
+            case "compress":
               this.onToolButtonClick(button, "zoomActualSize", props);
               break;
 
-            case "fas fa-expand":
+            case "expand":
               this.onToolButtonClick(button, "zoomFitSize", props);
 
               break;

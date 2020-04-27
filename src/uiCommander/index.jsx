@@ -12,6 +12,8 @@ class Toolbar extends Component {
   constructor(props) {
     super(props);
 
+    console.log("props: ", props);
+
     this.ref = React.createRef();
     this.toolbarLeftRef = React.createRef();
     this.toolbarRigthRef = React.createRef();
@@ -22,8 +24,14 @@ class Toolbar extends Component {
     this.eventBloc = new UIEventBloc();
   }
 
+  setToolbar = (tools) => {
+    const ref = this.ref;
+
+    this.eventBloc.setToolbar(ref, tools);
+  };
+
   loadToolbar = () => {
-    const ref = this.refs;
+    const ref = this.ref;
 
     this.eventBloc.load(ref);
   };
@@ -38,7 +46,7 @@ class Toolbar extends Component {
 
   componentDidMount() {
     // this.managerBloc.refs["toolbar"] = this.ref;
-    this.eventBloc.load(this.ref);
+    // this.eventBloc.load();
     this.eventBloc.init(this.ref, this.props);
   }
 
