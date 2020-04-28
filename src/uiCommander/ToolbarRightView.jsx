@@ -28,11 +28,11 @@ const ToolbarRightView = React.forwardRef(({ id, height } = props, ref) => (
           <i className="fa fa-camera" aria-hidden="true" />
         </ActionBarButton> */}
 
-      <ToolbarButton>
-        <Tooltip title="Open Guideline">
+      <Tooltip title="Open Guideline">
+        <ToolbarButton>
           <FontAwesomeIcon icon={faBorderNone} />
-        </Tooltip>
-      </ToolbarButton>
+        </ToolbarButton>
+      </Tooltip>
       {/* <ActionBarButton
           onClick={() => {
             onPrintHandler(editor);
@@ -45,26 +45,26 @@ const ToolbarRightView = React.forwardRef(({ id, height } = props, ref) => (
     {/* <div className="spacer"> </div> */}
 
     <div className="btn btn-group">
-      <ToolbarButton>
-        <Tooltip title="Zoom Out">
+      <Tooltip title="Zoom Out">
+        <ToolbarButton>
           <FontAwesomeIcon icon={faSearchMinus} />
-        </Tooltip>
-      </ToolbarButton>
-      <ToolbarButton>
-        <Tooltip title="Zoom In">
+        </ToolbarButton>
+      </Tooltip>
+      <Tooltip title="Zoom In">
+        <ToolbarButton>
           <FontAwesomeIcon icon={faSearchPlus} />
-        </Tooltip>
-      </ToolbarButton>
-      <ToolbarButton>
-        <Tooltip title="Zoom Actual Size">
+        </ToolbarButton>
+      </Tooltip>
+      <Tooltip title="Zoom Actual Size">
+        <ToolbarButton>
           <FontAwesomeIcon icon={faCompress} />
-        </Tooltip>
-      </ToolbarButton>
-      <ToolbarButton>
-        <Tooltip title="Zoom Fit Size">
+        </ToolbarButton>
+      </Tooltip>
+      <Tooltip title="Zoom Fit Size">
+        <ToolbarButton>
           <FontAwesomeIcon icon={faExpand} />
-        </Tooltip>
-      </ToolbarButton>
+        </ToolbarButton>
+      </Tooltip>
     </div>
   </div>
 ));

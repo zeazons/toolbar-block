@@ -4,6 +4,7 @@ import {
   faFolderOpen,
   faEdit,
   faSave,
+  faCheckCircle,
   faTimesCircle,
   faHistory,
   faUndoAlt,
@@ -23,49 +24,54 @@ const ToolbarLeftView = React.forwardRef(({ id, height } = props, ref) => (
     ref={ref}
   >
     <div className="btn">
-      <ToolbarCircleButton size="small">
-        <Tooltip title="Read Flow" placement="bottom">
+      <Tooltip title="Read Flow" placement="bottom">
+        <ToolbarCircleButton size="small">
           <FontAwesomeIcon icon={faFolderOpen} />
-        </Tooltip>
-      </ToolbarCircleButton>
-      <ToolbarCircleButton size="medium">
-        <Tooltip title="Edit Flow">
+        </ToolbarCircleButton>
+      </Tooltip>
+      <Tooltip title="Edit Flow">
+        <ToolbarCircleButton size="medium">
           <FontAwesomeIcon icon={faEdit} />
-        </Tooltip>
-      </ToolbarCircleButton>
-      <ToolbarCircleButton size="medium">
-        <Tooltip title="Save Flow">
+        </ToolbarCircleButton>
+      </Tooltip>
+      <Tooltip title="Save Flow">
+        <ToolbarCircleButton size="medium">
           <FontAwesomeIcon icon={faSave} />
-        </Tooltip>
-      </ToolbarCircleButton>
+        </ToolbarCircleButton>
+      </Tooltip>
     </div>
     {/* <div className="spacer"> </div> */}
     <div className="btn btn-group">
-      <ToolbarButton>
-        <Tooltip title="Discard Flow">
+      <Tooltip title="Commit Flow">
+        <ToolbarButton>
+          <FontAwesomeIcon icon={faCheckCircle} />
+        </ToolbarButton>
+      </Tooltip>
+      <Tooltip title="Discard Flow">
+        <ToolbarButton>
           <FontAwesomeIcon icon={faHistory} />
-        </Tooltip>
-      </ToolbarButton>
-      <ToolbarButton>
-        <Tooltip title="Close Flow">
+        </ToolbarButton>
+      </Tooltip>
+      <Tooltip title="Close Flow">
+        <ToolbarButton>
           <FontAwesomeIcon icon={faTimesCircle} />
-        </Tooltip>
-      </ToolbarButton>
+        </ToolbarButton>
+      </Tooltip>
     </div>
 
     {/* <div className="spacer"> </div> */}
 
     <div className="btn btn-group">
-      <ToolbarButton>
-        <Tooltip title="Undo Flow">
+      <Tooltip title="Undo Flow">
+        <ToolbarButton>
           <FontAwesomeIcon icon={faUndoAlt} />
-        </Tooltip>
-      </ToolbarButton>
-      <ToolbarButton>
-        <Tooltip title="Redo Flow">
+        </ToolbarButton>
+      </Tooltip>
+      <Tooltip title="Redo Flow">
+        <ToolbarButton>
           <FontAwesomeIcon icon={faRedoAlt} />
-        </Tooltip>
-      </ToolbarButton>
+        </ToolbarButton>
+      </Tooltip>
     </div>
 
     {/* <div className="spacer"> </div>

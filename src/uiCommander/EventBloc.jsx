@@ -46,6 +46,10 @@ export default class UIEventBloc extends EventBloc {
               this.onToolButtonClick(button, "saveFlow", props);
               break;
 
+            case "check-circle":
+              this.onToolButtonClick(button, "commitFlow", props);
+              break;
+
             case "history":
               this.onToolButtonClick(button, "discardFlow", props);
               break;
