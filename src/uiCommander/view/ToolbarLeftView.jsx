@@ -11,10 +11,10 @@ import {
   faRedoAlt,
 } from "@fortawesome/free-solid-svg-icons";
 
-import Tooltip from "./tooltip";
+import Tooltip from "../components/tooltip";
 
-import ToolbarButton from "./toolbarButton";
-import ToolbarCircleButton from "./toolbarCircleButton";
+import ToolbarButton from "../components/toolbarButton";
+import ToolbarCircleButton from "../components/toolbarCircleButton";
 
 const ToolbarLeftView = React.forwardRef(({ id, height } = props, ref) => (
   <div

@@ -8,9 +8,9 @@ import {
   faExpand,
 } from "@fortawesome/free-solid-svg-icons";
 
-import Tooltip from "./tooltip";
+import Tooltip from "../components/tooltip";
 
-import ToolbarButton from "./toolbarButton";
+import ToolbarButton from "../components/toolbarButton";
 
 const ToolbarRightView = React.forwardRef(({ id, height } = props, ref) => (
   <div

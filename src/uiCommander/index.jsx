@@ -3,8 +3,8 @@ import React, { Component } from "react";
 import ManagerBloc from "../bloc/ManagerBloc";
 import UIEventBloc from "./EventBloc";
 
-import ToolbarLeftView from "./ToolbarLeftView";
-import ToolbarRightView from "./ToolbarRightView";
+import ToolbarLeftView from "./view/ToolbarLeftView";
+import ToolbarRightView from "./view/ToolbarRightView";
 
 import "../assets/css/style.css";
 
