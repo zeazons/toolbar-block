@@ -23,6 +23,7 @@ const setAS400Token = (token) => {
 const requestPost = (data) => {
   const { url, method, header, params } = data;
   const body = {
+    id: 1,
     jsonrpc: "2.0",
     method: method,
     params: { data: params },

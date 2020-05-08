@@ -22,22 +22,22 @@ class UICommander extends Commander {
     super(props);
   }
 
-  receive = async (ref, data, extraParams) => {
+  receive = async (ref, data, extraParams, callback) => {
     const isValid = await validate(this, data);
 
     if (isValid.success) {
-      this.execute(ref, data, extraParams);
+      this.execute(ref, data, extraParams, callback);
     }
 
     return isValid;
   };
 
-  execute = (ref, data, extraParams) => {
+  execute = (ref, data, extraParams, callback) => {
     data.forEach((item) => {
       const fnName = item.name;
       const value = item.params;
 
-      this[fnName](ref, value, extraParams);
+      this[fnName](ref, value, extraParams, callback);
     });
   };
 

@@ -15,9 +15,9 @@ class EventWorker extends Component {
     this.uiListener = new UIListener();
   }
 
-  execute = (topic, data, extraParams) => {
+  execute = (topic, data, extraParams, callback) => {
     try {
-      this.uiListener.receive(topic, data, extraParams);
+      this.uiListener.receive(topic, data, extraParams, callback);
     } catch (error) {
       const action = generateAction({
         name: ActionConstants.ACTION_SHOW_ERROR,

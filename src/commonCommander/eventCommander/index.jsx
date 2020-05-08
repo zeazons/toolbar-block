@@ -9,8 +9,8 @@ class EventCommander extends Component {
     this.worker = new EventWorker();
   }
 
-  receive = (topic, data, extraParams) =>
-    this.worker.execute(topic, data, extraParams);
+  receive = (topic, data, extraParams, callback) =>
+    this.worker.execute(topic, data, extraParams, callback);
 }
 
 export default EventCommander;

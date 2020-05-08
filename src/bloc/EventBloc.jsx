@@ -9,7 +9,7 @@ export default class EventBloc extends Bloc {
     this.event = new EventCommander();
   }
 
-  receiveEvent = (topic, data, extraParams) => {
-    this.event.receive(topic, data, extraParams);
+  receiveEvent = (topic, data, extraParams, callback) => {
+    this.event.receive(topic, data, extraParams, callback);
   };
 }

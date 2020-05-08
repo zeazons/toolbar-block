@@ -60,11 +60,11 @@ const readActionFn = (eventList) => {
   });
 };
 
-const uiExecute = (ref, actionList, extraParams) => {
+const uiExecute = (ref, actionList, extraParams, callback) => {
   return new Promise(async (success, exception) => {
     const uic = new UICommander();
 
-    const result = await uic.receive(ref, actionList, extraParams);
+    const result = await uic.receive(ref, actionList, extraParams, callback);
 
     if (result.success) {
       success(result);
@@ -74,16 +74,16 @@ const uiExecute = (ref, actionList, extraParams) => {
   });
 };
 
-const catchHandler = (ref, error, extraParams) => {
+const catchHandler = (ref, error, extraParams, callback) => {
   const dc = new DefaultFailCommander();
   const defaultFailActionList = dc.receive(error);
 
   readActionFn(defaultFailActionList).then((actionList) => {
-    return uiExecute(ref, actionList, extraParams);
+    return uiExecute(ref, actionList, extraParams, callback);
   });
 };
 
-export const connectFlow = (ref, data, extraParams) => {
+export const connectFlow = (ref, data, extraParams, callback) => {
   return connectFn(data)
     .then((response) => {
       return extractFn(response);
@@ -92,20 +92,20 @@ export const connectFlow = (ref, data, extraParams) => {
       return readActionFn(eventList);
     })
     .then((actionList) => {
-      return uiExecute(ref, actionList, extraParams);
+      return uiExecute(ref, actionList, extraParams, callback);
     })
     .catch((error) => {
-      catchHandler(ref, error, extraParams);
+      catchHandler(ref, error, extraParams, callback);
     });
 };
 
-export const readActionFlow = (ref, eventList, extraParams) => {
+export const readActionFlow = (ref, eventList, extraParams, callback) => {
   return readActionFn(eventList)
     .then((actionList) => {
-      return uiExecute(ref, actionList, extraParams);
+      return uiExecute(ref, actionList, extraParams, callback);
     })
     .catch((error) => {
-      catchHandler(ref, error, extraParams);
+      catchHandler(ref, error, extraParams, callback);
     });
 };
 
@@ -114,11 +114,11 @@ export default class Bloc extends Component {
     super(props);
   }
 
-  receive = (ref, data, extraParams) => {
-    this.executeFlow(ref, data, extraParams);
+  receive = (ref, data, extraParams, callback) => {
+    this.executeFlow(ref, data, extraParams, callback);
   };
 
-  executeFlow = (ref, data, extraParams) => {
+  executeFlow = (ref, data, extraParams, callback) => {
     return preparDataFn(data)
       .then((data) => {
         return connectFn(data);
@@ -130,10 +130,10 @@ export default class Bloc extends Component {
         return readActionFn(eventList);
       })
       .then((actionList) => {
-        return uiExecute(ref, actionList, extraParams);
+        return uiExecute(ref, actionList, extraParams, callback);
       })
       .catch((error) => {
-        catchHandler(ref, error, extraParams);
+        catchHandler(ref, error, extraParams, callback);
       });
   };
 }

@@ -10,8 +10,9 @@ export default class PrivateTerminal extends Component {
   }
 
   // Private tunnel for internal use of ref
-  callConnect = (ref, data, extraParams) => connectFlow(ref, data, extraParams);
+  callConnect = (ref, data, extraParams, callback) =>
+    connectFlow(ref, data, extraParams, callback);
 
-  callReadAction = (ref, actionList, extraParams) =>
-    readActionFlow(ref, actionList, extraParams);
+  callReadAction = (ref, actionList, extraParams, callback) =>
+    readActionFlow(ref, actionList, extraParams, callback);
 }
