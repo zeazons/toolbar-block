@@ -12,8 +12,6 @@ class Toolbar extends Component {
   constructor(props) {
     super(props);
 
-    console.log("props: ", props);
-
     this.ref = React.createRef();
     this.toolbarLeftRef = React.createRef();
     this.toolbarRigthRef = React.createRef();
