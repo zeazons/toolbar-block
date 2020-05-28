@@ -14,10 +14,8 @@ class ToolbarCircleButton extends Component {
         className="btn btn-circle btn-xl"
         size={size}
         color={color}
+        disabled={disabled || false}
         onClick={onClick}
-        disabled={disabled}
-
-        // style={{ margin: "0 6px" }}
       >
         {children}
       </button>

@@ -8,7 +8,7 @@ class ToolbarButton extends Component {
       <button
         type="button"
         className="btn btn-light btn-sm"
-        disabled={disabled}
+        disabled={disabled || false}
         onClick={onClick}
       >
         {children}
